@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>4 Colores</title>
+        <style>
+            #div1,
+            #div2,
+            #div3,
+            #div4,
+            #key {
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+                border: 1px solid black;
+                display: inline-block;
+            }
+            #div1 {
+                background-color: blue;
+            }
+            #div2 {
+                background-color: red;
+            }
+            #div3 {
+                background-color: green;
+            }
+            #div4 {
+                background-color: yellow;
+            }
+            #key {
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="key"></div>
+
+        <script>
+            function cambiarColorNegro(event) {
+                event.target.style.backgroundColor = "black";
+            }
+
+            document
+                .getElementById("div1")
+                .addEventListener("click", cambiarColorNegro);
+            document
+                .getElementById("div2")
+                .addEventListener("click", cambiarColorNegro);
+            document
+                .getElementById("div3")
+                .addEventListener("click", cambiarColorNegro);
+            document
+                .getElementById("div4")
+                .addEventListener("click", cambiarColorNegro);
+
+            let color = "";
+
+            document.addEventListener("keydown", function (event) {
+                const keyDiv = document.getElementById("key");
+
+                if (event.key === "a") {
+                    color = "pink";
+                    keyDiv.style.backgroundColor = color;
+                } else if (event.key === "s") {
+                    color = "orange";
+                    keyDiv.style.backgroundColor = color;
+                } else if (event.key === "d") {
+                    color = "lightblue";
+                    keyDiv.style.backgroundColor = color;
+                } else if (event.key === "q") {
+                    crearNuevoDiv("purple");
+                } else if (event.key === "w") {
+                    crearNuevoDiv("gray");
+                } else if (event.key === "e") {
+                    crearNuevoDiv("brown");
+                }
+            });
+
+            function crearNuevoDiv(color) {
+                const newDiv = document.createElement("div");
+                newDiv.style.width = "200px";
+                newDiv.style.height = "200px";
+                newDiv.style.backgroundColor = color;
+                newDiv.style.border = "1px solid black";
+                document.body.appendChild(newDiv);
+            }
+        </script>
+    </body>
+</html>
